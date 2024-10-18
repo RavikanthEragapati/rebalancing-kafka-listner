@@ -1,0 +1,246 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "requestMethod": {
+      "type": "string",
+      "enum": [
+        "GET",
+        "HEAD",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE",
+        "OPTIONS",
+        "TRACE"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "queryParams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ValueRetrieverDTO"
+      }
+    },
+    "headers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ValueRetrieverDTO"
+      }
+    },
+    "body": {
+      "type": "object",
+      "properties": {
+        "rawJSON": {
+          "type": "string"
+        },
+        "valueRetriever": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValueRetrieverDTO"
+          }
+        }
+      }
+    },
+    "expectedResponseDTO": {
+      "type": "object",
+      "properties": {
+        "body": {
+          "type": "string"
+        },
+        "statusCode": {
+          "type": "integer"
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "existingJavaType": "java.util.Map<String, String>"
+        }
+      }
+    },
+    "actualResponseDTO": {
+      "type": "object",
+      "properties": {
+        "body": {
+          "type": "string"
+        },
+        "statusCode": {
+          "type": "integer"
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "existingJavaType": "java.util.Map<String, String>"
+        }
+      }
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "ValueRetrieverDTO": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "RAW",
+            "SECRET_STORE",
+            "ANOTHER_REQUEST"
+          ]
+        },
+        "raw": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "secretStore": {
+          "type": "object",
+          "$ref": "#/definitions/DynamicValueDTO"
+        },
+        "anotherRequest": {
+          "type": "object",
+          "properties": {
+            "responseFrom": {
+              "type": "string",
+              "enum": [
+                "RESPONSE_HEADER",
+                "RESPONSE_BODY"
+              ]
+            },
+            "requestId": {
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/definitions/DynamicValueDTO"
+            }
+          }
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "if": {
+        "properties": {
+          "type": {
+            "const": "SECRET_STORE"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "secretStore"
+        ]
+      }
+    },
+    "DynamicValueDTO": {
+      "type": "object",
+      "properties": {
+        "keyName": {
+          "type": "string"
+        },
+        "prefixWith": {
+          "type": "string"
+        },
+        "suffixWith": {
+          "type": "string"
+        }
+      }
+    },
+    "ResponseHeadersDTO": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "bodyDTO": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "RAW",
+            "SECRET_STORE",
+            "ANOTHER_REQUEST"
+          ]
+        },
+        "raw": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "secretStore": {
+          "type": "object",
+          "$ref": "#/definitions/DynamicValueDTO"
+        },
+        "anotherRequest": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "RESPONSE_HEADER",
+                "RESPONSE_BODY"
+              ]
+            },
+            "requestId": {
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/definitions/DynamicValueDTO"
+            }
+          }
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "if": {
+        "properties": {
+          "type": {
+            "const": "SECRET_STORE"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "secretStore"
+        ]
+      }
+    }
+  }
+}
