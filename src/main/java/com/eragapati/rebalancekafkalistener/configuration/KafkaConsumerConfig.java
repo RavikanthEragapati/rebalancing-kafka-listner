@@ -1,7 +1,7 @@
-package com.launchiam.mpresultsanalyzer.configuration;
+package com.eragapati.rebalancekafkalistener.configuration;
 
-import com.launchiam.mpresultsanalyzer.event.EventMessage;
-import com.launchiam.mpresultsanalyzer.event.TenantResponseMessage;
+import com.eragapati.rebalancekafkalistener.event.EventMessage;
+import com.eragapati.rebalancekafkalistener.event.TenantResponseMessage;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,7 +34,7 @@ public class KafkaConsumerConfig {
         StringJsonMessageConverter converter = new StringJsonMessageConverter();
         DefaultJackson2JavaTypeMapper typeMapper = new DefaultJackson2JavaTypeMapper();
         typeMapper.setTypePrecedence(Jackson2JavaTypeMapper.TypePrecedence.TYPE_ID);
-        typeMapper.addTrustedPackages("com.launchiam.mpresultsanalyzer.event");
+        typeMapper.addTrustedPackages("com.eragapati.mpresultsanalyzer.event");
         typeMapper.setIdClassMapping(mappings);
         converter.setTypeMapper(typeMapper);
         return converter;

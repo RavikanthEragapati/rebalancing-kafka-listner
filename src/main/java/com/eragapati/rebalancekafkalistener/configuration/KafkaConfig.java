@@ -1,4 +1,4 @@
-package com.launchiam.mpresultsanalyzer.configuration;
+package com.eragapati.rebalancekafkalistener.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;

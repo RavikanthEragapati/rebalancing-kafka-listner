@@ -1,8 +1,8 @@
-package com.launchiam.mpresultsanalyzer.listener;
+package com.eragapati.rebalancekafkalistener.listener;
 
-import com.launchiam.mpresultsanalyzer.event.EventMessage;
-import com.launchiam.mpresultsanalyzer.event.EventType;
-import com.launchiam.mpresultsanalyzer.service.ListenerStartStopService;
+import com.eragapati.rebalancekafkalistener.event.EventMessage;
+import com.eragapati.rebalancekafkalistener.event.EventType;
+import com.eragapati.rebalancekafkalistener.service.ListenerStartStopService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

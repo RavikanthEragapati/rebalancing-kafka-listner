@@ -1,6 +1,6 @@
-package com.launchiam.mpresultsanalyzer.service;
+package com.eragapati.rebalancekafkalistener.service;
 
-import com.launchiam.mpresultsanalyzer.listener.TenantResponseProcessorListener;
+import com.eragapati.rebalancekafkalistener.listener.TenantResponseProcessorListener;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.BeanFactory;

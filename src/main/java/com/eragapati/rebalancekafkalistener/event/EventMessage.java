@@ -1,4 +1,4 @@
-package com.launchiam.mpresultsanalyzer.event;
+package com.eragapati.rebalancekafkalistener.event;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.launchiam.mpresultsanalyzer.listener;
+package com.eragapati.rebalancekafkalistener.listener;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

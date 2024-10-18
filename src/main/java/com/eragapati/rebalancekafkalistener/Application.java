@@ -1,4 +1,4 @@
-package com.launchiam.mpresultsanalyzer;
+package com.eragapati.rebalancekafkalistener;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

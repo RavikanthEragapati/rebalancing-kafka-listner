@@ -1,4 +1,4 @@
-package com.launchiam.mpresultsanalyzer.configuration;
+package com.eragapati.rebalancekafkalistener.configuration;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.springframework.beans.factory.annotation.Value;

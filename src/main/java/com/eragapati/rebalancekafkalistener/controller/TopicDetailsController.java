@@ -1,7 +1,7 @@
-package com.launchiam.mpresultsanalyzer.controller;
+package com.eragapati.rebalancekafkalistener.controller;
 
-import com.launchiam.mpresultsanalyzer.event.EventMessage;
-import com.launchiam.mpresultsanalyzer.service.RetrieveResponseTopicNameService;
+import com.eragapati.rebalancekafkalistener.event.EventMessage;
+import com.eragapati.rebalancekafkalistener.service.RetrieveResponseTopicNameService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
